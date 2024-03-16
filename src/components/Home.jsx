@@ -1,18 +1,14 @@
 import { useTheme } from 'src/context/ThemeContext';
+import CountryList from './CountryList';
+import Header from './Header';
 import Search from './Search';
-import countriesAPI from '../../data';
 import { useEffect, useState } from 'react';
-import CountryCard from './CountryCard';
+import countriesAPI from '../../data';
 
 function Home() {
   const { theme } = useTheme();
   const [countries, setCountries] = useState([]);
-  const [visibleCountries, setVisibleCountries] = useState(7);
   const [regions, setRegions] = useState([]);
-
-  const loadMoreCountries = () => {
-    setVisibleCountries(prevCount => prevCount + 7);
-  };
 
   useEffect(() => {
     setCountries(countriesAPI);
@@ -21,9 +17,9 @@ function Home() {
     const sortedRegions = [...regionSet].sort((a, b) => a.localeCompare(b));
     setRegions(sortedRegions);
   }, [countries]);
-
   return (
     <div>
+      <Header />
       <Search />
       <select
         name=""
@@ -42,20 +38,7 @@ function Home() {
           );
         })}
       </select>
-
-      <section>
-        {countries.slice(0, visibleCountries).map(country => {
-          return <CountryCard country={country} key={country.name} />;
-        })}
-        <p
-          onClick={loadMoreCountries}
-          className={`hover:cursor-pointer active:text-gray-500 text-center text-${
-            theme === 'light' ? 'black' : 'white'
-          }`}
-        >
-          Load more countries...
-        </p>
-      </section>
+      <CountryList />
     </div>
   );
 }

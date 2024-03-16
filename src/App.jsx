@@ -10,7 +10,6 @@ function App() {
     <div
       className={`${theme === 'light' ? 'bg-[--White]' : 'bg-[--Dark-Blue]'}`}
     >
-      <Header />
       <Home />
     </div>
   );
