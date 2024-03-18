@@ -4,8 +4,9 @@ import { useTheme } from 'src/context/ThemeContext';
 
 function CountryCard({ country }) {
   const { theme } = useTheme();
+
   return (
-    <Link to={`/country/${country.name}`}>
+    <Link to={`/country/${country.name.replace(/\s+/g, '-')}`}>
       <div key={country.numericCode} className="card m-10 rounded-lg shadow-xl">
         <img src={country.flags.svg} className="rounded-t-lg" alt="" />
         <div className="p-6">

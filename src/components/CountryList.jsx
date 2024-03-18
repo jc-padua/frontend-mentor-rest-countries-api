@@ -11,6 +11,7 @@ function CountryList() {
   const loadMoreCountries = () => {
     setVisibleCountries(prevCount => prevCount + 7);
   };
+
   useEffect(() => {
     setCountries(countriesAPI);
   }, []);
@@ -25,7 +26,7 @@ function CountryList() {
           onClick={loadMoreCountries}
           className={`hover:cursor-pointer active:text-gray-500 text-center text-${
             theme === 'light' ? 'black' : 'white'
-          }`}
+          } mb-4`}
         >
           Load more countries...
         </p>
