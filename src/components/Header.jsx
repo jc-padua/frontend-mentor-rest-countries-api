@@ -5,14 +5,14 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div
-      className={`text-${
-        theme === 'light' ? 'black' : 'white'
-      } sticky top-0 backdrop-blur-lg`}
-    >
-      <header className="shadow-md flex justify-between p-6 mb-8 ">
-        <h2 className={`font-bold `}>Where in the world?</h2>
-        <ThemeButton toggleTheme={toggleTheme} theme={theme} />
+    <div className={` sticky top-0 backdrop-blur-lg`}>
+      <header className={`shadow-md flex justify-between p-6 mb-8 `}>
+        <h2
+          className={`font-bold text-${theme === 'light' ? 'black' : 'white'}`}
+        >
+          Where in the world?
+        </h2>
+        <ThemeButton theme={theme} toggleTheme={toggleTheme} />
       </header>
     </div>
   );

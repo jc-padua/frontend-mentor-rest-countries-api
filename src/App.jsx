@@ -1,17 +1,14 @@
 import './App.css';
-import Header from 'src/components/Header';
 import Home from 'src/components/Home';
-import { useTheme } from './context/ThemeContext';
+import CountryDetails from './components/CountryDetails';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const { theme } = useTheme();
-
   return (
-    <div
-      className={`${theme === 'light' ? 'bg-[--White]' : 'bg-[--Dark-Blue]'}`}
-    >
-      <Home />
-    </div>
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route path="/country/:countryName" element={<CountryDetails />} />
+    </Routes>
   );
 }
 

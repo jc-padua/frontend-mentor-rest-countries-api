@@ -24,7 +24,11 @@ function CountryDetails() {
     ) || [];
 
   return (
-    <div className={`text-${theme === 'light' ? 'black' : 'white'}`}>
+    <div
+      className={`text-${theme === 'light' ? 'black' : 'white'} bg-${
+        theme === 'light' ? 'white' : '[--Dark-Blue]'
+      }`}
+    >
       <Header />
       <div className="px-8">
         <button

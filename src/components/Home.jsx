@@ -17,8 +17,11 @@ function Home() {
     const sortedRegions = [...regionSet].sort((a, b) => a.localeCompare(b));
     setRegions(sortedRegions);
   }, [countries]);
+
   return (
-    <div>
+    <div
+      className={`${theme === 'light' ? 'bg-[--White]' : 'bg-[--Dark-Blue]'}`}
+    >
       <Header />
       <Search />
       <select
@@ -26,7 +29,7 @@ function Home() {
         id=""
         className={`w-1/2 mx-4 p-3 mb-8 shadow-md rounded-md bg-${
           theme === 'light' ? 'white' : '[--Dark-Blue]'
-        } text-${theme === 'light' ? 'dark' : 'white'}`}
+        } text-${theme === 'light' ? '[--Dark-Blue]' : '[--White]'}`}
         defaultValue={{ label: 'Filter by Region' }}
       >
         <option value="">Filter by Region</option>

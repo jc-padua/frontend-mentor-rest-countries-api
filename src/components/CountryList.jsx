@@ -17,7 +17,7 @@ function CountryList() {
   }, []);
 
   return (
-    <div className={`text-${theme === 'light' ? 'black' : 'white'}`}>
+    <div className={`text-${theme === 'light' ? 'black' : 'white'} `}>
       <section>
         {countries.slice(0, visibleCountries).map(country => {
           return <CountryCard country={country} key={country.name} />;
