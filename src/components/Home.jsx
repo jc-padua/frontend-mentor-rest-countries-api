@@ -29,7 +29,7 @@ function Home() {
         id=""
         className={`w-1/2 mx-4 p-3 mb-8 shadow-md rounded-md bg-${
           theme === 'light' ? 'white' : '[--Dark-Blue]'
-        } text-${theme === 'light' ? '[--Dark-Blue]' : '[--White]'}`}
+        } ${theme === 'light' ? 'text-black' : 'text-white'}`}
         defaultValue={{ label: 'Filter by Region' }}
       >
         <option value="">Filter by Region</option>

@@ -17,15 +17,15 @@ function CountryList() {
   }, []);
 
   return (
-    <div className={`text-${theme === 'light' ? 'black' : 'white'} `}>
+    <div className={`${theme === 'light' ? 'text-black' : 'text-white'}`}>
       <section>
         {countries.slice(0, visibleCountries).map(country => {
           return <CountryCard country={country} key={country.name} />;
         })}
         <p
           onClick={loadMoreCountries}
-          className={`hover:cursor-pointer active:text-gray-500 text-center text-${
-            theme === 'light' ? 'black' : 'white'
+          className={`hover:cursor-pointer active:text-gray-500 text-center ${
+            theme === 'light' ? 'text-black' : 'text-white'
           } mb-4`}
         >
           Load more countries...

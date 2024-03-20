@@ -8,7 +8,9 @@ function Header() {
     <div className={` sticky top-0 backdrop-blur-lg`}>
       <header className={`shadow-md flex justify-between p-6 mb-8 `}>
         <h2
-          className={`font-bold text-${theme === 'light' ? 'black' : 'white'}`}
+          className={`font-bold ${
+            theme === 'light' ? 'text-black' : 'text-white'
+          }`}
         >
           Where in the world?
         </h2>

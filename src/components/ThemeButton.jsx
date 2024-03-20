@@ -13,9 +13,7 @@ function ThemeButton({ theme, toggleTheme }) {
           <FaRegSun size={20} color="white" />
         )}
       </span>
-      <p
-        className={`text-${theme === 'light' ? '[--Dark-Blue]' : '[--White]'} `}
-      >
+      <p className={`${theme === 'light' ? 'text-black' : 'text-white'} `}>
         {theme === 'light' ? 'Dark' : 'Light'} Mode
       </p>
     </div>

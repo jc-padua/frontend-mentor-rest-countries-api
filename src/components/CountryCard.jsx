@@ -11,29 +11,29 @@ function CountryCard({ country }) {
         <img src={country.flags.svg} className="rounded-t-lg" alt="" />
         <div className="p-6">
           <p
-            className={`font-extrabold mb-4 text-${
-              theme === 'light' ? 'dark' : 'white'
+            className={`font-extrabold mb-4 ${
+              theme === 'light' ? 'text-black' : 'text-white'
             }`}
           >
             {country.name}
           </p>
           <p
-            className={`font-semibold text-${
-              theme === 'light' ? 'dark' : 'white'
+            className={`font-semibold ${
+              theme === 'light' ? 'text-black' : 'text-white'
             }`}
           >
             Population: <span className="font-light">{country.population}</span>
           </p>
           <p
-            className={`font-semibold text-${
-              theme === 'light' ? 'dark' : 'white'
+            className={`font-semibold ${
+              theme === 'light' ? 'text-black' : 'text-white'
             }`}
           >
             Region: <span className="font-light">{country.region}</span>
           </p>
           <p
-            className={`font-semibold text-${
-              theme === 'light' ? 'dark' : 'white'
+            className={`font-semibold ${
+              theme === 'light' ? 'text-black' : 'text-white'
             }`}
           >
             Capital: <span className="font-light">{country.capital}</span>
