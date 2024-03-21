@@ -20,7 +20,7 @@ function Home() {
 
   return (
     <div
-      className={`${theme === 'light' ? 'bg-[--White]' : 'bg-[--Dark-Blue]'}`}
+      className={` ${theme === 'light' ? 'bg-[--White]' : 'bg-[--Dark-Blue]'}`}
     >
       <Header />
       <Search />

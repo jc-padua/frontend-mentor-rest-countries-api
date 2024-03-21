@@ -1,15 +1,25 @@
-import { useEffect, useState } from 'react';
 import CountryCard from './CountryCard';
 import countriesAPI from '../../data';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'src/context/ThemeContext';
+import { useCountry } from 'src/context/CountryContext';
 
 function CountryList() {
   const [countries, setCountries] = useState([]);
-  const [visibleCountries, setVisibleCountries] = useState(7);
+  const { country } = useCountry();
   const { theme } = useTheme();
+  const [visibleCountries, setVisibleCountries] = useState(7);
 
   const loadMoreCountries = () => {
     setVisibleCountries(prevCount => prevCount + 7);
+  };
+
+  const searchedCountries = () => {
+    if (!country) return countries.slice(0, visibleCountries);
+
+    return countries.filter(item =>
+      item.name.toLowerCase().includes(country.toLowerCase())
+    );
   };
 
   useEffect(() => {
@@ -17,21 +27,19 @@ function CountryList() {
   }, []);
 
   return (
-    <div className={`${theme === 'light' ? 'text-black' : 'text-white'}`}>
-      <section>
-        {countries.slice(0, visibleCountries).map(country => {
-          return <CountryCard country={country} key={country.name} />;
-        })}
-        <p
-          onClick={loadMoreCountries}
-          className={`hover:cursor-pointer active:text-gray-500 text-center ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          } mb-4`}
-        >
-          Load more countries...
-        </p>
-      </section>
-    </div>
+    <section className={`${theme === 'light' ? 'text-black' : 'text-white'}`}>
+      {searchedCountries().map(country => {
+        return <CountryCard country={country} key={country.name} />;
+      })}
+      <p
+        onClick={loadMoreCountries}
+        className={`hover:cursor-pointer active:text-gray-500 text-center ${
+          theme === 'light' ? 'text-black' : 'text-white'
+        } `}
+      >
+        Load more countries...
+      </p>
+    </section>
   );
 }
 

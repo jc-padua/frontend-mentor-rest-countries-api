@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'src/context/ThemeContext.jsx';
+import { CountryProvider } from './context/CountryContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <CountryProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </CountryProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

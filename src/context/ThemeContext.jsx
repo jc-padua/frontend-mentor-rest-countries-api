@@ -1,9 +1,21 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export const ThemeContext = createContext('undefined');
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem('theme');
+    return storedTheme ? JSON.parse(storedTheme) : 'light';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+    const storedTheme = JSON.parse(localStorage.getItem('theme'));
+    if (storedTheme === 'dark') {
+      setTheme('dark');
+    }
+  }, [theme]);
+
   return (
     <ThemeContext.Provider
       value={{

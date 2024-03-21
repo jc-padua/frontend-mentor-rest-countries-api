@@ -83,7 +83,7 @@ function CountryDetails() {
             </p>
           </div>
           <h2 className="text-lg font-bold mb-3">Border Countries:</h2>
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 pb-8">
             {countryBorders.length < 1
               ? 'No border countries'
               : countryBorders.map(border => (
