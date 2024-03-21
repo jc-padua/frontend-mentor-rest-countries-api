@@ -31,14 +31,18 @@ function CountryList() {
       {searchedCountries().map(country => {
         return <CountryCard country={country} key={country.name} />;
       })}
-      <p
-        onClick={loadMoreCountries}
-        className={`hover:cursor-pointer active:text-gray-500 text-center ${
-          theme === 'light' ? 'text-black' : 'text-white'
-        } `}
-      >
-        Load more countries...
-      </p>
+      {searchedCountries().length < 7 ? (
+        ''
+      ) : (
+        <p
+          onClick={loadMoreCountries}
+          className={`hover:cursor-pointer active:text-gray-500 text-center ${
+            theme === 'light' ? 'text-black' : 'text-white'
+          } `}
+        >
+          Load more countries...
+        </p>
+      )}
     </section>
   );
 }
