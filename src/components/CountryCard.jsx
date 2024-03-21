@@ -36,7 +36,10 @@ function CountryCard({ country }) {
               theme === 'light' ? 'text-black' : 'text-white'
             }`}
           >
-            Capital: <span className="font-light">{country.capital}</span>
+            Capital:{' '}
+            <span className="font-light">
+              {country.capital || 'No Capital'}
+            </span>
           </p>
         </div>
       </div>

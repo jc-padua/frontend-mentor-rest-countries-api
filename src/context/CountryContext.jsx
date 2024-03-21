@@ -3,12 +3,12 @@ import { createContext, useContext, useState } from 'react';
 export const CountryContext = createContext('');
 
 export const CountryProvider = ({ children }) => {
-  const [country, setCountry] = useState('');
+  const [searchCountry, setSearchCountry] = useState('');
   return (
     <CountryContext.Provider
       value={{
-        country,
-        setCountry,
+        searchCountry,
+        setSearchCountry,
       }}
     >
       {children}

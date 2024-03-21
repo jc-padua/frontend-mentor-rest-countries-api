@@ -6,7 +6,7 @@ import { useCountry } from 'src/context/CountryContext';
 
 function CountryList() {
   const [countries, setCountries] = useState([]);
-  const { country } = useCountry();
+  const { searchCountry } = useCountry();
   const { theme } = useTheme();
   const [visibleCountries, setVisibleCountries] = useState(7);
 
@@ -15,10 +15,10 @@ function CountryList() {
   };
 
   const searchedCountries = () => {
-    if (!country) return countries.slice(0, visibleCountries);
+    if (!searchCountry) return countries.slice(0, visibleCountries);
 
     return countries.filter(item =>
-      item.name.toLowerCase().includes(country.toLowerCase())
+      item.name.toLowerCase().includes(searchCountry.toLowerCase())
     );
   };
 

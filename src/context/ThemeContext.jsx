@@ -10,10 +10,6 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme));
-    const storedTheme = JSON.parse(localStorage.getItem('theme'));
-    if (storedTheme === 'dark') {
-      setTheme('dark');
-    }
   }, [theme]);
 
   return (
